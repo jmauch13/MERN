@@ -1,0 +1,124 @@
+/***    General     ***/
+.log-page {
+    background-color: lightgray;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif
+}
+
+body {
+    margin: 0 auto
+}
+
+.m-5-auto {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.primary-button {
+    margin-top: 5rem;
+    margin-right: 1rem;
+    padding: .6rem;
+    width: 10rem;
+    background: #222;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all .5s;
+    cursor: pointer;
+    text-transform: capitalize
+}
+
+footer  {
+    color: blue;
+}
+
+/***    Login Page     ***/
+h2 {
+    font-size: 3.0em;
+    color: blue;
+}
+
+form {
+    min-height: 250px;
+    min-width: 400px;
+    display: inline-block;
+    background: #f3f3f3;
+    padding: 2rem;
+    margin: 2rem 0 1rem 0
+}
+
+form label {
+    float: left;
+    font-size: 1.2em;
+    margin: 0;
+    padding: .3rem;
+}
+
+.pass-label {
+    padding: .5rem;
+}
+
+.right-label {
+    float: right;
+    cursor: pointer;
+    color: blue;
+}
+
+input {
+    width: 20rem;
+    height: 2rem;
+    padding: .3rem;
+    border-radius: 5px;
+    background-color: white;
+    
+}
+
+#sub_btn {
+    display: block;
+    width: 40%;
+    padding: .5rem;
+    margin-top: .5rem;
+    border: none;
+    background: blue;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#sub_btn:hover {
+    background: rgb(7, 198, 7);
+    transition: all .5s
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.0em;
+    padding: .5rem;
+}
+
+/***    Register Page     ***/
+#checkbox {
+    width: 1rem
+}
+
+form span {
+    font-size: .8rem
+}
+
+#reset_pass_lbl {
+    float: left
+}
