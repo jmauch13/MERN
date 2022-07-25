@@ -3,6 +3,8 @@ const { ApolloServer } = require('apollo-server-express');
 
 //import typeDefs and resolvers
 const { typeDefs, resolvers } = require('./schemas');
+const { authMiddleware } = require('./utils/auth');
+
 const app = express();
 const cors = require('cors');
 require('dotenv').config({ path: './config.env' });
@@ -10,7 +12,8 @@ const PORT = process.env.PORT || 3001;
 //create a new Apollo server amd pass in our schema data
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: authMiddleware
 });
 app.use(cors());
 app.use(express.json());
