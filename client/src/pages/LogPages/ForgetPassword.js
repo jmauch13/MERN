@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import '../../components/LogPages/logs.css'
+import './logs.css'
 
 export default function ForgetPassword() {
     return (

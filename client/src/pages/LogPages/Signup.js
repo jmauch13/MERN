@@ -5,7 +5,7 @@ import { ADD_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-import '../../components/LogPages/logs.css'
+import './logs.css'
 
 export default function Signup() {
     const [formState, setFormState] = useState({
@@ -46,7 +46,7 @@ export default function Signup() {
             <form onSubmit={formSubmit}>
                 <p>
                     <label>Username</label><br/>
-                    <input type='text' name='first_name' required value={formState.username} onChange={handleChange} />
+                    <input type='text' name='name' required value={formState.username} onChange={handleChange} />
                 </p>
                 <p>
                     <label>Email</label><br/>

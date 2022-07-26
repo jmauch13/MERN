@@ -3,14 +3,14 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Sidebar';
-import LandingPage from './components/LandingPage/landing';
+import LandingPage from './pages/LandingPage/landing';
 import Sidebar from './components/Navbar/Sidebar';
-import Signup from './components/LogPages/Signup';
-import Signin from './components/LogPages/Signin';
-import ForgetPassword from './components/LogPages/ForgetPassword';
-import Education from './components/BlogPages/Education';
-import Intern from './components/BlogPages/Intern';
-import JobTalk from './components/BlogPages/JobTalk';
+import Signup from './pages/LogPages/Signup';
+import Signin from './pages/LogPages/Signin';
+import ForgetPassword from './pages/LogPages/ForgetPassword';
+import Education from './pages/BlogPages/Education';
+import Intern from './pages/BlogPages/Intern';
+import JobTalk from './pages/BlogPages/JobTalk';
 
 const httpLink = createHttpLink({
     uri: 'http://localhost:3001/graphql',

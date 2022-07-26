@@ -5,7 +5,7 @@ import { USER_LOGIN } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-import '../../components/LogPages/logs.css'
+import './logs.css'
 
 export default function Signin(props) {
     const [formState, setFormState ] = useState({ email: '', password: '' });
@@ -47,7 +47,7 @@ export default function Signin(props) {
             <form onSubmit={formSubmit}>
                 <p>
                     <label>Email</label><br/>
-                    <input type='text' name='first_name' required value={formState.email} onChange={handleChange} />
+                    <input type='email' name='email' required value={formState.email} onChange={handleChange} />
                 </p>
                 <p>
                     <label className='pass-label'>Password</label>
