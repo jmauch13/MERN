@@ -1,76 +1,79 @@
+.landing {
+    min-height: 900px;
+}
+
 .center {
     display: flex;
     justify-content: center;
     min-height: 100%;
 }
 
-.page-header {
-    font-family: 'Anton', sans-serif;
-    margin-top: 8%;
-    font-size: 4.8em;
-    font-weight: 500;
-    line-height: 1.25;
+.page-landing {
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 1%;
+    font-size: 5.0em;
+    font-weight: 500px;
+    line-height: 1.15;
     color: rgb(7, 198, 7);
+    margin-right: 20%;
+    animation: flicker 1.5s infinite alternate;
 }
+
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(253, 7, 196),
+    0 0 82px rgb(253, 7, 196),
+    0 0 92px rgb(253, 7, 196),
+    0 0 102px rgb(253, 7, 196),
+    0 0 151px rgb(253, 7, 196);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
 
 #about {
     min-height: 900px;
+    
 }
 
 #about p {
-    max-width: 900px;
-    max-height: 100px;
-    margin-top: 25px;
-    font-size: 2em;
+    margin-left: 40%;
+    max-width: 700px;
+    max-height: 225px;
+    margin-top: 75px;
+    font-size: 1.6em;
+    font-family: 'Orbitron', sans-serif;
     color: rgb(7, 198, 7);
 }
 
-.scene {
-    position: relative;
-    
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    /*display: flex;*/
-    justify-content: center;
-    align-items: center;
-}
-
-.scene .rocket {
-    justify-content: center;
-    animation: animate 0.2s ease infinite;;
-}
-
-@keyframes animate {
-    0%,100%
-    {
-        transform: translateY(-2px);
+@media screen and (max-width: 575px) {
+    body {
+        max-height: fit-content;
+        max-width: fit-content;
     }
-    50%
-    {
-        transform: translateY(2px);
+
+    .center {
+        display: block;
+        float: right;
     }
-}
 
-.scene .rocket::before {
-    content: '';
-    position: absolute;
-    bottom: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 200px;
-    background: linear-gradient(#00d0ff,transparent);
-}
+    .page-landing {
+        display: block;
+        float: right;
+        font-size: 1.8em;
+        margin-right: 40%;
+        animation: flicker 10s;
+    }
 
-.scene .rocket::after {
-    content: '';
-    position: absolute;
-    bottom: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 200px;
-    background: linear-gradient(#00d0ff,transparent);
-    filter: blur(20px);
+    #about p {
+        font-size: 1.0em;
+    }
 }
