@@ -1,4 +1,5 @@
 import React from 'react';
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Sidebar';
 import LandingPage from './components/LandingPage/landing';
@@ -10,8 +11,18 @@ import Education from './components/BlogPages/Education';
 import Intern from './components/BlogPages/Intern';
 import JobTalk from './components/BlogPages/JobTalk';
 
+const httpLink = createHttpLink({
+    uri: 'http://localhost:3001/graphql',
+});
+
+const client = new ApolloClient({
+    link: httpLink,
+    cache: new InMemoryCache(),
+});
+
 const App = () => {
     return (
+        <ApolloProvider client={client}>
         <div className='App' id='outer-container'>
             <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
             <div id='page-wrap'>
@@ -27,6 +38,7 @@ const App = () => {
             </Routes>   
         </div>
         </div>
+        </ApolloProvider>
         
     );
 };
