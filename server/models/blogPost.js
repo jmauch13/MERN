@@ -11,7 +11,7 @@ const blogPostSchema = new Schema(
             maxLength: 800
         },
         createdAt: {
-            tytpe: Date,
+            type: Date,
             default: Date.now,
             get: timestamp => formatDate(timestamp)
         },

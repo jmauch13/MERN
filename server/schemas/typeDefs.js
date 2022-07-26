@@ -26,7 +26,7 @@ type Comments {
     username: String
 }
 
-type: Auth {
+type Auth {
     token: ID!
     user: User
 }
