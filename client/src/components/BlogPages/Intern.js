@@ -3,6 +3,7 @@ import ModalScreen from './ModalScreen';
 import '../BlogPages/blog.css';
 import logo from '../../assets/images/rocket-launch-icon.jpg';
 
+
 export default function Intern() {
     return (
         <body className='blog-pages'>

@@ -12,6 +12,7 @@ import Education from './components/BlogPages/Education';
 import Intern from './components/BlogPages/Intern';
 import JobTalk from './components/BlogPages/JobTalk';
 
+
 const httpLink = createHttpLink({
     uri: 'http://localhost:3001/graphql',
 });

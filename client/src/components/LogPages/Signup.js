@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-
 import Auth from '../../utils/auth';
-
+import logo from '../../assets/images/rocket-launch-icon.jpg';
 import '../../components/LogPages/logs.css'
 
 export default function Signup() {
@@ -41,6 +40,7 @@ export default function Signup() {
         <body className='log-page'>
     <div className='container'>
         <div className='text-center m-5-auto'>
+        <img src={logo} width='75' height='75' />
             <h2>Join us</h2>
             <h5>Create your personal account</h5>
             <form onSubmit={formSubmit}>

@@ -95,3 +95,74 @@ textarea {
     font-size: 3.5em;
 }
 
+@media screen and (max-width: 768px) {
+    body {
+        min-height: 900px;
+    }
+
+    .education h1, .intern h1, .jobs h1 {
+        font-size: 2.1em;
+        margin-top: 30%;
+        align-self: center;
+        margin-left: 5px;
+    }
+
+    .blog-pages {
+        min-height: 260px;
+        display: flex;
+    }
+
+    .btn-one {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    img {
+        margin-right: 35px;
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1030px) {
+    body {
+        min-height: 900px;
+    }
+    
+    .education h1, .intern h1, .jobs h1 {
+        font-size: 3.0em;
+        margin-left: 3%;
+        margin-top: 15%;
+    }
+
+    .blog-pages {
+        display: flex;
+        min-height: 250px;
+    }
+
+    img {
+        margin-top: 25px;
+        margin-right: 35px;
+    }
+
+    .btn-one {
+        font-size: 0.9em;
+        padding: 8px;
+        margin-left: 3%;
+    }
+}
+
+@media (max-width: 376px) {
+    body {
+        min-height: 900px;
+    }
+    
+    .education h1, .intern h1, .jobs h1 {
+        font-size: 1.6em;
+        margin-top: 32%;
+    }
+
+    .blog-pages {
+        min-height: 230px;
+        display: flex;
+    }
+}

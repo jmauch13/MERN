@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { USER_LOGIN } from '../../utils/mutations';
-
 import Auth from '../../utils/auth';
-
+import logo from '../../assets/images/rocket-launch-icon.jpg';
 import '../../components/LogPages/logs.css'
 
 export default function Signin(props) {
@@ -43,6 +42,7 @@ export default function Signin(props) {
         <body className='log-page'>
       <div className='container'>
         <div className='text-center m-5-auto'>
+        <img src={logo} width='75' height='75' />
             <h2>Sign In</h2>
             <form onSubmit={formSubmit}>
                 <p>
