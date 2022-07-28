@@ -10,7 +10,7 @@ export default function Signin(props) {
     const [formState, setFormState ] = useState({ email: '', password: '' });
     const [signin, { error }] = useMutation(USER_LOGIN);
 
-    const handleChange = event => {
+    const handleChange = (event) => {
         const { name, value } = event.target; 
 
         setFormState({
@@ -42,21 +42,21 @@ export default function Signin(props) {
         <body className='log-page'>
       <div className='container'>
         <div className='text-center m-5-auto'>
-        <img src={logo} width='75' height='75' />
+        <img src={logo} alt="rocket" width='75' height='75' />
             <h2>Sign In</h2>
             <form onSubmit={formSubmit}>
                 <p>
                     <label>Email</label><br/>
-                    <input type='email' name='email' required onChange={e => setFormState({...formState, email: e.target.value})} value={formState.email}/>
+                    <input type='email' name='email' required  value={formState.email}onChange={handleChange}/>
                 </p>
                 <p>
                     <label className='pass-label'>Password</label>
                     <Link to='/password'><label className='right-label'>Forget password?</label></Link>
                     <br/>
-                    <input type='password' name='password' required onChange={e => setFormState({...formState, password: e.target.value})} value={formState.email} />
+                    <input type='password' name='password' required value={formState.password} onChange={handleChange} />
                 </p>
                 <p>
-                    <button id='sub_btn' type='submit'>Login</button>
+                    <button id='sub_btn' type='submit' value="Signin">Login</button>
                 </p>
             </form>
 

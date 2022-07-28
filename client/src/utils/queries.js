@@ -91,7 +91,7 @@ query internPosts($username: String) {
 `;
 
 export const QUERY_INTERNPOST = gql `
-uery internPost($id: ID!) {
+query internPost($id: ID!) {
     internPost(_id: $id) {
         _id
        internText
