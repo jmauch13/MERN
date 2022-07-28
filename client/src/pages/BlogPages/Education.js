@@ -5,6 +5,7 @@ import EducationList from '../../components/EducationList';
 import CommentForm from '../../components/CommentForm';
 import Auth from '../../utils/auth';
 import '../BlogPages/blog.css';
+import logo from '../../assets/images/rocket-launch-icon.jpg';
 
 export default function Education() {
 
@@ -15,9 +16,9 @@ export default function Education() {
     const loggedIn = Auth.loggedIn();
     return (
         <body className='blog-pages'>
-    <div className='wrapper'>
-        <div className='education'>
-            <h1>Continue Your Education</h1>
+            <div className='wrapper'>
+                <div className='education'>
+                <h1>Continue Your Education &nbsp;<img src={logo} alt='rocket' width='75' height='75' /></h1>
             <div className="flex-row justify-space-between">
                 <div className="col-12 mb-3" >
                     <div className={`${loggedIn}`}>

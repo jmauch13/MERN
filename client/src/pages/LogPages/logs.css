@@ -15,11 +15,16 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif
+    font-family: 'Orbitron', sans-serif;
 }
 
 body {
     margin: 0 auto
+}
+
+img {
+    float: right;
+    padding-right: 25px;
 }
 
 .m-5-auto {
@@ -58,7 +63,7 @@ form {
     display: inline-block;
     background: #f3f3f3;
     padding: 2rem;
-    margin: 2rem 0 1rem 0
+    margin: 2rem 0 1rem 0;
 }
 
 form label {
@@ -121,4 +126,48 @@ form span {
 
 #reset_pass_lbl {
     float: left
+}
+
+@media screen and (max-width: 575px) {
+    body {
+        min-height: 900px;
+    }
+    
+    form {
+        max-height: 600px;
+        max-width: 600px;
+
+    }
+
+    form span {
+        font-size: 0.6rem;
+
+    }
+
+    input {
+        width: 16rem;
+        height: 1.5rem;
+        padding: 5px;
+    }
+
+    form label {
+        font-size: 0.9em;
+        float: left;
+    }
+
+    h2 {
+        font-size: 2.5em;
+        margin-top: 10%;
+    }
+
+    footer p {
+        font-size: 0.8em;
+    }
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        height: 85vh;
+    }
+
 }

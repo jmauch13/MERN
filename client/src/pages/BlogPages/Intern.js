@@ -7,6 +7,8 @@ import CommentForm from '../../components/CommentForm';
 import Auth from '../../utils/auth';
 
 import '../BlogPages/blog.css';
+import logo from '../../assets/images/rocket-launch-icon.jpg';
+
 
 
 export default function Intern() {

@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-
 import Auth from '../../utils/auth';
-
-import './logs.css'
+import logo from '../../assets/images/rocket-launch-icon.jpg';
+import '../LogPages/logs.css'
 
 export default function Signup() {
     const [formState, setFormState] = useState({
@@ -41,12 +40,13 @@ export default function Signup() {
         <body className='log-page'>
     <div className='container'>
         <div className='text-center m-5-auto'>
+        <img src={logo} width='75' height='75' />
             <h2>Join us</h2>
             <h5>Create your personal account</h5>
             <form onSubmit={formSubmit}>
                 <p>
                     <label>Username</label><br/>
-                    <input type='text' name='name' required value={formState.username} onChange={handleChange} />
+                    <input type='text' name='username' required value={formState.username} onChange={handleChange} />
                 </p>
                 <p>
                     <label>Email</label><br/>

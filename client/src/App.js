@@ -12,6 +12,7 @@ import Education from './pages/BlogPages/Education';
 import Intern from './pages/BlogPages/Intern';
 import JobTalk from './pages/BlogPages/JobTalk';
 
+
 const httpLink = createHttpLink({
     uri: 'http://localhost:3001/graphql',
 });
@@ -52,6 +53,6 @@ const App = () => {
         </ApolloProvider>
         
     );
-};
+    }
 
 export default App;
