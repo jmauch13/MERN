@@ -1,23 +1,23 @@
 import React from 'react';
 import JobList from '../../components/JobList';
 import JobForm from '../../components/JobForm';
-import FriendList from '../../components/FriendList';
+import CommentForm from '../../components/CommentForm';
 
 import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
-import { QUERY_BLOGPOSTS, QUERY_ME } from '../../utils/queries';
+import { QUERY_JOBPOSTS } from '../../utils/queries';
 import '../BlogPages/blog.css';
 
 export default function JobTalk() {
-    const { loading, data } = useQuery(QUERY_BLOGPOSTS);
-    const { data: userData } = useQuery(QUERY_ME);
-    const blogPosts = data?.blogPosts || []; 
+    const { loading, data } = useQuery(QUERY_JOBPOSTS);
+    
+    const jobPosts = data?.jobPosts || []; 
 
     const loggedIn = Auth.loggedIn();
     
     
     return (
-        <body className='blog-pages'>
+    <body className='blog-pages'>
     <div className='wrapper'>
         <div className='jobs'>
             {loggedIn && (
@@ -30,21 +30,14 @@ export default function JobTalk() {
                     <div>Fetching Posts</div>
                 ) : (
                 <JobList    
-                blogPosts={blogPosts}
-                title="Job Resources" />
+                jobPosts={jobPosts}
+                title="Job Resources" 
+                commentCount={jobPosts.commentCount}/>
                 )}
             </div>
-            {loggedIn && userData ? (
-                <div>
-                    <FriendList
-                    username={userData.me.username}
-                    friendCount={userData.me.friendCount}
-                    friends={userData.me.friends} />
-                </div>
-            ) : null}
        </div>
     </div>
-        
-        </body>
+      {Auth.loggedIn() && <CommentForm jobpostId={jobPosts._id} />}  
+    </body>
     );
 }; 

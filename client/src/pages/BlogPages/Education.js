@@ -1,34 +1,39 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_BLOGPOSTS } from '../../utils/queries';
+import { QUERY_EDUCATIONPOSTS } from '../../utils/queries';
 import EducationList from '../../components/EducationList';
-import ModalScreen from './ModalScreen';
+import CommentForm from '../../components/CommentForm';
+import Auth from '../../utils/auth';
 import '../BlogPages/blog.css';
 
 export default function Education() {
 
-    const { loading, data } = useQuery(QUERY_BLOGPOSTS);
-    const blogPosts = data?.blogPosts || [];
-    console.log(blogPosts);
+    const { loading, data } = useQuery(QUERY_EDUCATIONPOSTS);
+    const educationPosts = data?.educationPosts || [];
+    console.log(educationPosts);
+
+    const loggedIn = Auth.loggedIn();
     return (
         <body className='blog-pages'>
     <div className='wrapper'>
         <div className='education'>
             <h1>Continue Your Education</h1>
             <div className="flex-row justify-space-between">
-                <div className="col-12 mb-3">
+                <div className="col-12 mb-3" >
+                    <div className={`${loggedIn}`}>
                     {loading ? (
                         <div>Retrieving Posts...</div>
                     ) : (
-                        <EducationList blogPosts={blogPosts} title="Continue Your Education.." />
+                        <EducationList educationPosts={educationPosts} 
+                        title="Continue Your Education.." 
+                        commentCount={educationPosts.commentCount} />
                     )}
+                    </div>
                 </div>
             </div>
-            <div className='modal-popup'>
-            <ModalScreen />
         </div>
-        </div>
+        {Auth.loggedIn() && <CommentForm educationPostId={educationPosts._id} />}
         </div>
         </body>
     );
-}
+};

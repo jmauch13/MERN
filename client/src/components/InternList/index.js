@@ -1,29 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const InternList = ({ blogPosts, title }) => {
-    if (!blogPosts.length) {
+const InternList = ({ internPosts, title }) => {
+    if (!internPosts.length) {
         return <h3>No Posts To Display</h3>;
     }
 
     return (
         <div>
             <h3>{title}</h3>
-            {blogPosts && 
-            blogPosts.map(blogPost => (
-                <div key={blogPost._id} className="card mb-3">
+            {internPosts && 
+            internPosts.map(internPost => (
+                <div key={internPost._id} className="card mb-3">
                     <p className="card-header">
-                        <Link to={`/profile/${blogPost.username}`}>
-                            {blogPost.username}
+                        <Link to={`/profile/${internPost.username}`}>
+                            {internPost.username}
                         </Link>{' '}
-                        Created on {blogPost.createdAt}
+                        Created on {internPost.createdAt}
                     </p>
                     <div className="card-body">
-                        <Link to={`/blogPost/${blogPost._id}`}>
-                            <p>{blogPost.textContent}</p>
+                        <Link to={`/blogPost/${internPost._id}`}>
+                            <p>{internPost.internText}</p>
                             <p className="mb-0">
-                                Comments: {blogPost.commentCount} || Click to {' '}
-                                {blogPost.commentCount ? 'read' : 'share'} comments!
+                                Comments: {internPost.commentCount} || Click to {' '}
+                                {internPost.commentCount ? 'read' : 'share'} comments!
                             </p>
                         </Link>
                     </div>

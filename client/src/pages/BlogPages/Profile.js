@@ -2,15 +2,14 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
 import EducationList from '../components/EducationList';
-
 import JobList from '../components/JobList';
 import InternList from '../components/InternList';
+import FriendList from '../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
-import FriendList from '../components/FriendList';
 import '../BlogPages/blog.css';
 
 const Profile = (props) => {
@@ -59,20 +58,20 @@ const Profile = (props) => {
     
         <div>
             <EducationList
-                blogPosts={user.blogPosts}
+                educationPosts={user.educationPosts}
                 title={`${user.username}'s posts`} />
            
         </div>
         <div>
             <InternList 
-            blogPosts={user.blogPosts}
+            internPosts={user.internPosts}
             title={`${user.username}'s posts`}
             />
         </div>
 
         <div>
             <JobList
-            blogPosts={user.blogPosts}
+            jobPosts={user.jobPosts}
             title={`${user.username}'s posts`} />
         </div>
 

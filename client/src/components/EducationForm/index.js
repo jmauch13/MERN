@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 
 import { useMutation } from '@apollo/client';
-import { ADD_BLOGPOST } from '../../utils/mutations';
-import { QUERY_BLOGPOSTS, QUERY_ME } from '../../utils/queries';
+import { ADD_EDUCATIONPOST } from '../../utils/mutations';
+import { QUERY_EDUCATIONPOSTS, QUERY_ME } from '../../utils/queries';
 
 const EducationForm = () => {
-    const [blogPostText, setText] = useState('');
+    const [educationText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
 
-    const [addBlogPost, { error }] = useMutation(ADD_BLOGPOST, {
-        update(cache, { data: { addBlogPost } }) {
+    const [addEducationPost, { error }] = useMutation(ADD_EDUCATIONPOST, {
+        update(cache, { data: { addEducationPost } }) {
             try {
                 const { me } = cache.readQuery({ query: QUERY_ME });
                 cache.writeQuery({
                     query: QUERY_ME,
-                    data: { me: { ...me, blogPosts: [...me.blogPosts, addBlogPost] } },
+                    data: { me: { ...me, educationPosts: [...me.educationPosts, addEducationPost] } },
                 });
             } catch (e) {
                 console.warn("First post by user")
             }
 
-            const { blogPosts } = cache.readQuery({ query: QUERY_BLOGPOSTS });
+            const { educationPosts } = cache.readQuery({ query: QUERY_EDUCATIONPOSTS });
             cache.writeQuery({
-                query: QUERY_BLOGPOSTS,
-                data: { blogPosts: [addBlogPost, ...blogPosts] },
+                query: QUERY_EDUCATIONPOSTS,
+                data: { blogPosts: [addEducationPost, ...educationPosts] },
             });
         }
     });
@@ -39,8 +39,8 @@ const EducationForm = () => {
         event.preventDefault();
 
         try {
-            await addBlogPost({
-                variables: { blogPostText },
+            await addEducationPost({
+                variables: { educationText },
             });
 
             setText('');
@@ -59,7 +59,7 @@ const EducationForm = () => {
             <form onSubmit={formSubmit}>
                 <textarea
                 placeholder="Share your thoughts here"
-                value={blogPostText}
+                value={educationText}
                 onChange={handleChange}></textarea>
                 <button type="submit">Submit</button>
             </form>

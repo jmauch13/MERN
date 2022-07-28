@@ -8,14 +8,14 @@ const CommentList = ({ comments }) => {
                 <span>Comments</span>
             </div>
             <div>
-                {comments && comments.map(comment => {
+                {comments && comments.map(comment => (
                     <p key={comment._id}>
                         {comment.commentBody} || {' '}
                         <Link to={`/profile/${comment.username}`}>
                             {comment.username} on {comment.createdAt}    
                         </Link> 
                     </p>     
-                })}
+                ))}
             </div>
         </div>
     )

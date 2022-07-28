@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 
-import { defaultDataIdFromObject, useMutation } from '@apollo/client';
-import { ADD_BLOGPOST } from '../../utils/mutations';
-import { QUERY_BLOGPOSTS, QUERY_ME } from '../../utils/queries';
+import { useMutation } from '@apollo/client';
+import { ADD_INTERNPOST } from '../../utils/mutations';
+import { QUERY_INTERNPOSTS, QUERY_ME } from '../../utils/queries';
 
 const InternForm = () => {
-    const [blogPostText, setText] = useState('');
+    const [internText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
 
-    const [addBlogPost, { error }]= useMutation(ADD_BLOGPOST, {
-        update(cache, { data: { addBlogPost } }) {
+    const [addInternPost, { error }]= useMutation(ADD_INTERNPOST, {
+        update(cache, { data: { addInternPost } }) {
 
             try {
                 const { me } = cache.readQuery({ query: QUERY_ME });
                 cache.writeQuery({
                     query: QUERY_ME,
-                    data: { me: { ...me, blogPosts: [...me.blogPosts, addBlogPost] }},
+                    data: { me: { ...me, internPosts: [...me.internPosts, addInternPost] }},
                 });
             } catch (e) {
                 console.warn("User's first post")
             } 
 
-            const { blogPosts } = cache.readQuery({ query: QUERY_BLOGPOSTS });
+            const { internPosts } = cache.readQuery({ query: QUERY_INTERNPOSTS });
             cache.writeQuery({
-                query: QUERY_BLOGPOSTS,
-                data: { blogPosts: [addBlogPost, ...blogPosts] },
+                query: QUERY_INTERNPOSTS,
+                data: { internPosts: [addInternPost, ...internPosts] },
             });
         }
     });
@@ -40,8 +40,8 @@ const InternForm = () => {
         event.preventDefault(); 
 
         try {
-            await addBlogPost({
-                variables: { blogPostText }, 
+            await addInternPost({
+                variables: { internText }, 
             });
 
             setText('');
@@ -60,7 +60,7 @@ const InternForm = () => {
             <form onSubmit={formSubmit}>
                 <textarea
                 placeholder="Write your post here"
-                value={blogPostText}
+                value={internText}
                 onChange={handleChange}></textarea>
                 <button type="submit">Submit</button>
             </form>

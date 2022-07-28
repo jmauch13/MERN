@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { ADD_BLOGPOST } from '../../utils/mutations';
-import { QUERY_BLOGPOSTS, QUERY_ME } from '../../utils/queries'; 
+import { ADD_JOBPOST } from '../../utils/mutations';
+import { QUERY_JOBPOSTS, QUERY_ME } from '../../utils/queries'; 
 
 const JobForm = () => {
-    const [blogPostText, setText] = useState('');
+    const [jobText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
 
-    const [addBlogPost, { error }] = useMutation(ADD_BLOGPOST, {
+    const [addJobPost, { error }] = useMutation(ADD_JOBPOST, {
         update(cache, { data: { addBlogPost } }) {
             try {
             const { me } = cache.readQuery({ query: QUERY_ME });
             cache.writeQuery({
                 query: QUERY_ME,
-                data: { me: { ...me, blogPosts: [...me.blogPosts, addBlogPost] } },
+                data: { me: { ...me, jobPosts: [...me.jobPosts, addJobPost] } },
             });
         } catch (e) {
             console.warn("User's first post");
         }
 
-        const { blogPosts } = cache.readQuery({ query: QUERY_BLOGPOSTS } );
+        const { jobPosts } = cache.readQuery({ query: QUERY_JOBPOSTS } );
         cache.writeQuery({
-            query: QUERY_BLOGPOSTS,
-            data: { blogPosts: [addBlogPost, ...blogPosts ] },
+            query: QUERY_JOBPOSTS,
+            data: { jobPosts: [addJobPost, ...jobPosts ] },
         });
     }
     });
@@ -39,8 +39,8 @@ const JobForm = () => {
         event.preventDefault();
 
         try {
-            await addBlogPost({
-                variables: { blogPostText },
+            await addJobPost({
+                variables: { jobText },
             });
 
             setText('');
@@ -59,7 +59,7 @@ const JobForm = () => {
             <form onSubmit={formSubmit}>
                 <textarea 
                 placeholder="Write your post here"
-                value={blogPostText}
+                value={jobText}
                 onChange={handleChange}></textarea> 
                 <button type="submit">Submit</button>
             </form>
