@@ -28,7 +28,7 @@ const InternPostSchema = new Schema(
     }
 );
 
-EducationPostSchema.virtual('commentCount').get(function() {
+InternPostSchema.virtual('commentCount').get(function() {
     return this.comments.length;
 });
 

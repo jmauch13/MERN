@@ -1,4 +1,6 @@
 const User = require('./User');
-const blogPost = require('./blogPost');
+const EducationPost = require('./EducationPost');
+const InternPost = require('./InternPost');
+const JobPost = require('./JobPost');
 
-module.exports = { User, blogPost };
+module.exports = { User, EducationPost, InternPost, JobPost };

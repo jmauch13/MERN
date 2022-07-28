@@ -21,7 +21,7 @@ const EducationList = ({ educationPosts, title }) => {
                         Created on {educationPost.createdAt}
                     </p>
                     <div className="card-body">
-                        <Link to={(`/educationPost/${educationPost._id}`)}>
+                        <Link to={(`/education/${educationPost._id}`)}>
                         <p>{educationPost.educationText}</p>
                         <p className="mb-0">
                             Comments: {educationPost.commentCount} || Click to{' '}

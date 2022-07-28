@@ -8,7 +8,9 @@ type User {
     username: String
     email: String
     commentCount: Int
-    blogPosts: [blogPost]
+    educationPosts: [EducationPost]
+    jobPosts: [JobPost]
+    internPosts: [InternPost]
     friends: [User]
 }
 type educationPost {
@@ -35,9 +37,7 @@ type internPost {
     commentCount: String
     comments: [Comments]
 }
-}
 
-}
 type Comments {
     _id: ID
     commentBody: String
