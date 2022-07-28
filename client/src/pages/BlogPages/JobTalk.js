@@ -1,7 +1,7 @@
 import React from 'react';
 import JobList from '../../components/JobList';
 import JobForm from '../../components/JobForm';
-import CommentForm from '../../components/CommentForm';
+
 
 import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -33,12 +33,12 @@ export default function JobTalk() {
                 <JobList    
                 jobPosts={jobPosts}
                 title="Job Resources" 
-                commentCount={jobPosts.commentCount}/>
+                />
                 )}
             </div>
        </div>
     </div>
-      {Auth.loggedIn() && <CommentForm jobpostId={jobPosts._id} />}  
+      
     </body>
     );
 }; 

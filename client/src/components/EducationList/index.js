@@ -23,10 +23,6 @@ const EducationList = ({ educationPosts, title }) => {
                     <div className="card-body">
                         <Link to={(`/education/${educationPost._id}`)}>
                         <p>{educationPost.educationText}</p>
-                        <p className="mb-0">
-                            Comments: {educationPost.commentCount} || Click to{' '}
-                            {educationPost.commentCount ? 'read' : 'share'} comments! 
-                        </p>
                         </Link>
                     </div>
                 </div>    

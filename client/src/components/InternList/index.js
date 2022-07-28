@@ -19,12 +19,8 @@ const InternList = ({ internPosts, title }) => {
                         Created on {internPost.createdAt}
                     </p>
                     <div className="card-body">
-                        <Link to={`/blogPost/${internPost._id}`}>
+                        <Link to={`/intern/${internPost._id}`}>
                             <p>{internPost.internText}</p>
-                            <p className="mb-0">
-                                Comments: {internPost.commentCount} || Click to {' '}
-                                {internPost.commentCount ? 'read' : 'share'} comments!
-                            </p>
                         </Link>
                     </div>
                 </div>

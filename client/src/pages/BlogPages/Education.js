@@ -2,7 +2,6 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_EDUCATIONPOSTS } from '../../utils/queries';
 import EducationList from '../../components/EducationList';
-import CommentForm from '../../components/CommentForm';
 import Auth from '../../utils/auth';
 import '../BlogPages/blog.css';
 import logo from '../../assets/images/rocket-launch-icon.jpg';
@@ -26,14 +25,13 @@ export default function Education() {
                         <div>Retrieving Posts...</div>
                     ) : (
                         <EducationList educationPosts={educationPosts} 
-                        title="Continue Your Education.." 
-                        commentCount={educationPosts.commentCount} />
+                        title="Continue Your Education.."  />
                     )}
                     </div>
                 </div>
             </div>
         </div>
-        {Auth.loggedIn() && <CommentForm educationPostId={educationPosts._id} />}
+       
         </div>
         </body>
     );

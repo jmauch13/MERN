@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/client';
 import { QUERY_INTERNPOSTS } from '../../utils/queries';
 import InternList from '../../components/InternList';
 import InternForm from '../../components/InternForm';
-import CommentForm from '../../components/CommentForm';
 import Auth from '../../utils/auth';
 
 import '../BlogPages/blog.css';
@@ -36,12 +35,12 @@ export default function Intern() {
                     <InternList 
                     internPosts={internPosts}
                     title="Apprenticeships and Internships"
-                    commentCount={internPosts.commentCount} />
+                     />
                 )}
             </div> 
         </div>
         </div>
-        {Auth.loggedIn() && <CommentForm internId={internPosts._id} />}
+        
         </body>
     );
 };
