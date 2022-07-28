@@ -11,13 +11,32 @@ type User {
     blogPosts: [blogPost]
     friends: [User]
 }
-type blogPost {
+type educationPost {
     _id: ID
-    blogPostText: String
+    educationText: String
     createdAt: String
     username: String
     commentCount: String
     comments: [Comments]
+}
+type jobPost {
+    _id: ID
+    jobText: String
+    createdAt: String
+    username: String
+    commentCount: String
+    comments: [Comments]
+}
+type internPost {
+    _id: ID
+    internText: String
+    createdAt: String
+    username: String
+    commentCount: String
+    comments: [Comments]
+}
+}
+
 }
 type Comments {
     _id: ID
@@ -35,15 +54,23 @@ type Query {
     me: User
     users: [User]
     user(username: String!): User
-    blogPosts(username: String): [blogPost]
-    blogPost(_id: ID!): blogPost
+    educationPosts(username: String): [educationPost]
+    educationPost(_id: ID!): educationPost
+    jobPosts(username: String): [jobPost]
+    jobPost(_id: ID!): jobPost
+    internPosts(username: String): [internPost]
+    internPost(_id: ID!): internPost
 }
 
 type Mutation {
     login(email: String!, password: String!): Auth 
     addUser(username: String!, email: String!, password: String!): Auth
-    addBlogPost(blogPostText: String!): blogPost 
-    addComment(blogPostId: ID!, commentBody: String!): blogPost
+    addEducationPost(educationtText: String!): educationPost 
+    addEducationComment(educationPostId: ID!, commentBody: String!): educationPost
+    addJobPost(jobText:String!): jobPost
+    addJobComment(jobTextId: ID!, commentBody: String!): jobPost
+    addInternPost(internText: String!): InternPost
+    addInternComment(internTextId: ID!, commentBody: String!): internPost
     addFriend(friendId: ID!): User
 }
 `;

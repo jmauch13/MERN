@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_BLOGPOSTS = gql `
-query blogPosts($username: String) {
-    blogPosts(username: $username) {
+export const QUERY_EDUCATIONPOSTS = gql `
+query educationPosts($username: String) {
+    educationPosts(username: $username) {
         _id
-        blogPostText
+        educationText
         createdAt
         username
         commentCount
@@ -18,11 +18,83 @@ query blogPosts($username: String) {
 }
 `;
 
-export const QUERY_BLOGPOST = gql `
-query blogPost($id: ID!) {
-    blogPost(_id: $id) {
+export const QUERY_EDUCATIONPOST = gql `
+query educationPost($id: ID!) {
+    educationPost(_id: $id) {
         _id
-        blogPostText
+        educationtText
+        createdAt
+        username
+        commentCount
+        comments {
+            _id
+            createdAt
+            username
+            commentBody
+        }
+    }
+}
+`;
+
+export const QUERY_JOBPOSTS = gql `
+query jobPosts($username: String) {
+    jobPosts(username: $username) {
+        _id
+        jobText
+        createdAt
+        username
+        commentCount
+        comments {
+            _id
+            createdAt
+            username
+            commentBody
+        } 
+    }
+}
+`;
+
+export const QUERY_JOBPOST = gql `
+query jobPost($id: ID!) {
+    jobPost(_id: $id) {
+        _id
+       jobText
+        createdAt
+        username
+        commentCount
+        comments {
+            _id
+            createdAt
+            username
+            commentBody
+        }
+    }
+}
+`;
+
+export const QUERY_INTERNPOSTS = gql `
+query internPosts($username: String) {
+    internPosts(username: $username) {
+        _id
+        internText
+        createdAt
+        username
+        commentCount
+        comments {
+            _id
+            createdAt
+            username
+            commentBody
+        } 
+    }
+}
+`;
+
+export const QUERY_INTERNPOST = gql `
+uery internPost($id: ID!) {
+    internPost(_id: $id) {
+        _id
+       internText
         createdAt
         username
         commentCount
@@ -47,9 +119,21 @@ query user($username: String!) {
             _id
             username
         }
-        blostPosts {
+        educationPosts {
             _id
-            blogPostText
+            educationPostText
+            createdAt
+            commentCount
+        }
+        jobPosts {
+            _id
+            jobPostText
+            createdAt
+            commentCount
+        }
+        internPosts {
+            _id
+            internText
             createdAt
             commentCount
         }

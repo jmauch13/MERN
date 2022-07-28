@@ -24,12 +24,12 @@ mutation addUser($username: String!, $email: String!, $password: String!) {
 }
 `;
 
-export const ADD_BLOGPOST = gql`
-mutation addBlogPost($blogPostText: String!) {
-    addBlogPost(blogPostText: $blogPostText) {
+export const ADD_JOBPOST = gql`
+mutation addJobPost($jobText: String!) {
+    addJobPost(jobText: $jobText) {
         _id
         username
-        blogPostText
+        jobText
         createdAt
         commentCount
         comments {
@@ -39,9 +39,39 @@ mutation addBlogPost($blogPostText: String!) {
 }
 `;
 
-export const ADD_COMMENT = gql`
-mutation addComment($blogPostId: ID!, $commentBody: String!) {
-    addComment(blogPostId: $blogPostId, commentBody: $commentBody) {
+export const ADD_JOBCOMMENT = gql`
+mutation addJobComment($jobPostId: ID!, $commentBody: String!) {
+    addEducationComment(jobPostId: $jobPostId, commentBody: $commentBody) {
+        _id
+        commentCount
+        comments {
+            _id
+            username
+            commentBody
+            creatdAt
+        }
+    }
+}
+`; 
+
+export const ADD_INTERNPOST = gql`
+mutation addInternPost($internText: String!) {
+    addInternPost(internText: $internText) {
+        _id
+        username
+       internText
+        createdAt
+        commentCount
+        comments {
+            _id
+        }
+    }
+}
+`;
+
+export const ADD_INTERNCOMMENT = gql`
+mutation addInternComment($internPostId: ID!, $commentBody: String!) {
+    addInternComment(internPostId: $internPostId, commentBody: $commentBody) {
         _id
         commentCount
         comments {

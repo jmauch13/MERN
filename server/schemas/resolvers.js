@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, blogPost } = require('../models');
+const { User, JobPost, EducationPost, InternPost } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -27,13 +27,28 @@ const resolvers = {
             .populate('blogPosts')
             .populate('friends');
         },
-        blogPosts: async (parent, { username }) => {
+        jobPosts: async (parent, { username }) => {
             const params = username ? { username } : {};
-            return blogPost.find(params).sort({ createdAt: -1});
+            return JobPost.find(params).sort({ createdAt: -1});
         },
-        blogPosts: async(parent, { _id }) => {
-            return blogPost.findOne({ _id });
+        jobPost: async(parent, { _id }) => {
+            return JobPost.findOne({ _id });
+        },
+        educationPosts: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return EducationPost.find(params).sort({ createdAt: -1});
+        },
+        educationPost: async(parent, { _id }) => {
+            return EducationPost.findOne({ _id });
+        },
+        internPosts: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return InternPost.find(params).sort({ createdAt: -1});
+        },
+        internPost: async(parent, { _id }) => {
+            return InternPost.findOne({ _id });
         }
+
     },
 
     Mutation: {
@@ -59,27 +74,75 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addBlogPost: async (parent, args, context) => {
+        addEducationPost: async (parent, args, context) => {
             if (context.user) {
-                const post = await blogPost.create({ ...args, username: context.user.username });
+                const educationPost = await EducationPost.create({ ...args, username: context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { blogPosts: post._id } },
+                    { $push: { educationPosts: educationPost._id } },
                     { new: true }
                 );
-                return post;
+                return educationPost;
             }
             throw new AuthenticationError('Please log in to post!');
         },
-        addComment: async (parent, { blogPostId, commentBody }, context) => {
+        addEducationComment: async (parent, { educationPostId, commentBody }, context) => {
             if (context.user) {
-                const updatedBlogPost = await blogPost.findOneAndUpdate(
-                    { _id: blogPostId },
+                const updatedEducationPost = await EducationPost.findOneAndUpdate(
+                    { _id: educationPostId },
                     { $push: { comments: { commentBody, username: context.user.username } } },
                     { new: true, runValidators: true }
                 );
-                return updatedBlogPost;
+                return updatedEducationPost;
+            }
+            throw new AuthenticationError('Please log in to edit your post!');
+        },
+        addJobPost: async (parent, args, context) => {
+            if (context.user) {
+                const jobPost = await JobPost.create({ ...args, username: context.user.username });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { jobPosts: jobPost._id } },
+                    { new: true }
+                );
+                return jobPost;
+            }
+            throw new AuthenticationError('Please log in to post!');
+        },
+        addJobComment: async (parent, { jobPostId, commentBody }, context) => {
+            if (context.user) {
+                const updatedJobPost = await JobPost.findOneAndUpdate(
+                    { _id: jobPostId },
+                    { $push: { comments: { commentBody, username: context.user.username } } },
+                    { new: true, runValidators: true }
+                );
+                return updatedJobPost;
+            }
+            throw new AuthenticationError('Please log in to edit your post!');
+        },
+        addInternPost: async (parent, args, context) => {
+            if (context.user) {
+                const internPost = await InternPost.create({ ...args, username: context.user.username });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { internPosts:internPost._id } },
+                    { new: true }
+                );
+                return internPost;
+            }
+            throw new AuthenticationError('Please log in to post!');
+        },
+        addInternComment: async (parent, { internPostId, commentBody }, context) => {
+            if (context.user) {
+                const updatedInternPost = await InternPost.findOneAndUpdate(
+                    { _id: internPostId },
+                    { $push: { comments: { commentBody, username: context.user.username } } },
+                    { new: true, runValidators: true }
+                );
+                return updatedInternPost;
             }
             throw new AuthenticationError('Please log in to edit your post!');
         },
