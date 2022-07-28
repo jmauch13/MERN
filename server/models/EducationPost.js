@@ -2,9 +2,9 @@ const { Schema, model } = require('mongoose');
 const commentsSchema = require('./Comments');
 const formatDate = require('../utils/formatDate'); 
 
-const blogPostSchema = new Schema(
+const EducationPostSchema = new Schema(
     {
-        blogPostText: {
+        educationText: {
             type: String,
             required: 'You must include content in your post!',
             minlength: 1,
@@ -28,10 +28,10 @@ const blogPostSchema = new Schema(
     }
 );
 
-blogPostSchema.virtual('commentCount').get(function() {
+EducationPostSchema.virtual('commentCount').get(function() {
     return this.comments.length;
 });
 
-const blogPost = model('blogPost', blogPostSchema);
+const educationPost = model('educationPost', EducationPostSchema);
 
-module.exports = blogPost;
+module.exports = educationPost;
