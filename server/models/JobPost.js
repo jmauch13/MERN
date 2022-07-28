@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const commentsSchema = require('./Comments');
 const formatDate = require('../utils/formatDate'); 
 
-const JobPostSchema = new Schema(
+const jobPostSchema = new Schema(
     {
         jobText: {
             type: String,
@@ -28,10 +28,10 @@ const JobPostSchema = new Schema(
     }
 );
 
-JobPostSchema.virtual('commentCount').get(function() {
+jobPostSchema.virtual('commentCount').get(function() {
     return this.comments.length;
 });
 
-const jobPost = model('jobPost', JobPostSchema);
+const JobPost = model('jobPost', jobPostSchema);
 
-module.exports = jobPost;
+module.exports = JobPost;

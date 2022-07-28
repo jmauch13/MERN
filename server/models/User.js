@@ -20,10 +20,22 @@ const userSchema = new Schema(
         required: true,
         minlength: 5
     },
-    blogPosts: [
+    educationPosts: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'blogPost'
+            ref: 'EducationPost'
+        }
+    ],
+    internPosts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'InternPost'
+        }
+    ],
+    jobPosts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'JobPost'
         }
     ],
     friends: [
