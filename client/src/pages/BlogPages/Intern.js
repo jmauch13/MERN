@@ -22,7 +22,7 @@ export default function Intern() {
         <body className='blog-pages'>
     <div className='wrapper'>
         <div className='intern'>
-        <h1>Apprenticeships & Internships</h1>
+        <h1>Apprenticeships & Internships &nbsp;<img src={logo} alt='rocket' width='75' height='75' /></h1>
             {loggedIn && (
                 <div>
                     <InternForm />
