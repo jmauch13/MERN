@@ -9,7 +9,7 @@ export default function JobTalk() {
           <div className='wrapper'>
             <div className='jobs'>
             <h1>Job Resources &nbsp;<img src={logo} width='75' height='75' /></h1>
-            <div classname='modal-popup'>
+            <div className='modal-popup'>
             <ModalScreen />
         </div>
       </div>

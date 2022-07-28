@@ -9,8 +9,8 @@ export default function Intern() {
         <body className='blog-pages'>
             <div className='wrapper'>
                 <div className='intern'>
-                <h1>Apprenticeships & Internships &nbsp;<img src={logo} width='75' height='75' /></h1>
-                <div classname='modal-popup'>
+                <h1>Apprenticeships & Internships &nbsp;<img src={logo} alt='rocket' width='75' height='75' /></h1>
+                <div className='modal-popup'>
                 <ModalScreen />
             </div>
         </div>
