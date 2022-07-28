@@ -4,7 +4,6 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import logo from '../../assets/images/rocket-launch-icon.jpg';
-
 import '../LogPages/logs.css'
 
 export default function Signup() {

@@ -47,13 +47,13 @@ export default function Signin(props) {
             <form onSubmit={formSubmit}>
                 <p>
                     <label>Email</label><br/>
-                    <input type='text' name='first_name' required value={formState.email} onChange={handleChange} />
+                    <input type='email' name='email' required onChange={e => setFormState({...formState, email: e.target.value})} value={formState.email}/>
                 </p>
                 <p>
                     <label className='pass-label'>Password</label>
                     <Link to='/password'><label className='right-label'>Forget password?</label></Link>
                     <br/>
-                    <input type='password' name='password' required value={formState.password} onChange={handleChange} />
+                    <input type='password' name='password' required onChange={e => setFormState({...formState, password: e.target.value})} value={formState.email} />
                 </p>
                 <p>
                     <button id='sub_btn' type='submit'>Login</button>

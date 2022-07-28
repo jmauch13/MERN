@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 const EducationList = ({ blogPosts, title }) => {
-    if (!blogPosts.length) {
-        return <h3>No Posts To Display</h3>
-    }
+    
 
     return (
         <div>

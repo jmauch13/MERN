@@ -95,6 +95,7 @@ textarea {
     font-size: 3.5em;
 }
 
+
 @media screen and (max-width: 768px) {
     body {
         min-height: 900px;
