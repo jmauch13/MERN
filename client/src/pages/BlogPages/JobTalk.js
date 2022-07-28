@@ -21,6 +21,7 @@ export default function JobTalk() {
     <body className='blog-pages'>
     <div className='wrapper'>
         <div className='jobs'>
+            <h1>Job Resources &nbsp;<img src={logo} alt='rocket' width='75' height='75' /></h1>
             {loggedIn && (
                 <div>
                     <JobForm /> 
