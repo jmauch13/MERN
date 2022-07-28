@@ -13,7 +13,7 @@ type User {
     internPosts: [InternPost]
     friends: [User]
 }
-type educationPost {
+type EducationPost {
     _id: ID
     educationText: String
     createdAt: String
@@ -21,7 +21,7 @@ type educationPost {
     commentCount: String
     comments: [Comments]
 }
-type jobPost {
+type JobPost {
     _id: ID
     jobText: String
     createdAt: String
@@ -29,7 +29,7 @@ type jobPost {
     commentCount: String
     comments: [Comments]
 }
-type internPost {
+type InternPost {
     _id: ID
     internText: String
     createdAt: String
@@ -54,23 +54,23 @@ type Query {
     me: User
     users: [User]
     user(username: String!): User
-    educationPosts(username: String): [educationPost]
-    educationPost(_id: ID!): educationPost
-    jobPosts(username: String): [jobPost]
-    jobPost(_id: ID!): jobPost
-    internPosts(username: String): [internPost]
-    internPost(_id: ID!): internPost
+    educationPosts(username: String): [EducationPost]
+    educationPost(_id: ID!): EducationPost
+    jobPosts(username: String): [JobPost]
+    jobPost(_id: ID!): JobPost
+    internPosts(username: String): [InternPost]
+    internPost(_id: ID!): InternPost
 }
 
 type Mutation {
     login(email: String!, password: String!): Auth 
     addUser(username: String!, email: String!, password: String!): Auth
-    addEducationPost(educationtText: String!): educationPost 
-    addEducationComment(educationPostId: ID!, commentBody: String!): educationPost
-    addJobPost(jobText:String!): jobPost
-    addJobComment(jobTextId: ID!, commentBody: String!): jobPost
+    addEducationPost(educationtText: String!): EducationPost 
+    addEducationComment(educationPostId: ID!, commentBody: String!): EducationPost
+    addJobPost(jobText:String!): JobPost
+    addJobComment(jobTextId: ID!, commentBody: String!): JobPost
     addInternPost(internText: String!): InternPost
-    addInternComment(internTextId: ID!, commentBody: String!): internPost
+    addInternComment(internTextId: ID!, commentBody: String!): InternPost
     addFriend(friendId: ID!): User
 }
 `;
