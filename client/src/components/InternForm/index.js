@@ -4,6 +4,8 @@ import { useMutation } from '@apollo/client';
 import { ADD_INTERNPOST } from '../../utils/mutations';
 import { QUERY_INTERNPOSTS, QUERY_ME } from '../../utils/queries';
 
+
+
 const InternForm = () => {
     const [internText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
@@ -51,6 +53,10 @@ const InternForm = () => {
         }
     }; 
 
+    
+
+
+
     return (
         <div>
             <p className={`${characterCount === 800 || error ? 'text-error' : ''}`}>
@@ -66,6 +72,6 @@ const InternForm = () => {
             </form>
         </div>
     );
-}; 
+};  
 
 export default InternForm;
