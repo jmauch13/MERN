@@ -13,6 +13,11 @@ img {
     margin-top: 50px;
 }
 
+.blog-form {
+    display: flex;
+    margin-top: 60%;
+}
+
 .blog-pages {
     min-height: 175px;
     background-color: lightgray;

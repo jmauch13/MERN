@@ -56,9 +56,7 @@ export default function Signup() {
                     <label>Password</label><br/>
                     <input type='password' name='password' required value={formState.password} onChange={handleChange}/>
                 </p>
-                <p>
-                    <input type='checkbox' name='checkbox' id='checkbox' required /> <span>I agree all statements in <a href='https://google.com' target='_blank' rel='noopener noreferrer'>terms of service</a></span>.
-                </p>
+                
                 <p>
                     <button id='sub_btn' type='submit'>Register</button>
                 </p>
