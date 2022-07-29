@@ -11,8 +11,7 @@ import ForgetPassword from './pages/LogPages/ForgetPassword';
 import Education from './pages/BlogPages/Education';
 import Intern from './pages/BlogPages/Intern';
 import JobTalk from './pages/BlogPages/JobTalk';
-import UserAccount from './components/UserAccount';
-import Auth from '../src/utils/auth';
+
 
 const httpLink = createHttpLink({
     uri: 'http://localhost:3001/graphql',
@@ -33,8 +32,7 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
 });
 
-const loggedIn = Auth.loggedIn();
-const loggedOut = !loggedIn;
+
 
 const App = () => {
     return (
@@ -48,7 +46,6 @@ const App = () => {
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/signin' element={<Signin />} />
                 <Route path='/password' element={<ForgetPassword />} />
-                <Route path='/account' element={<UserAccount />} />
                 <Route path='/education' element={<Education />} />
                 <Route path='/intern' element={<Intern />} />
                 <Route path='/jobs' element={<JobTalk />} />
