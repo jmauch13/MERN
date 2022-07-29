@@ -1,0 +1,32 @@
+[
+    {
+        "jobText": "I found a really helpful site for anyone looking for remote work!  www.remotive.com",
+        "username": "JennieM",
+        "comments": [
+            {
+                "commentBody": "Thanks for sharing this!",
+                "username": "Leslie"
+            }
+        ]
+    },
+    {
+        "jobText": "Check out this site for companies that hire bootcamp grads!  www.nobledesktop.com",
+        "username": "Leslie",
+        "comments": [
+            {
+                "commentBody": "This was so helpful!",
+                "username": "Tracy25"
+            }
+        ]    
+    },
+    {
+        "jobText": "Here is another resource for anyone trying to find remote work www.remotetechjobs.com",
+        "username": "Tracy25",
+        "comments": [
+            {
+                "commentBody": "Love this site!",
+                "username": "JennieM"
+            }
+        ]
+    }
+]

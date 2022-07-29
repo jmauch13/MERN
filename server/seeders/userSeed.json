@@ -1,0 +1,23 @@
+[
+    {
+        "username": "JennieM",
+        "email": "jenniem@gmail.com",
+        "password": "1234abcd!?",
+        "friends": [],
+        "jobPosts": []
+    }, 
+    {
+        "username": "Tracy25",
+        "email": "tracy@gmail.com",
+        "password":"abcdefg123", 
+        "friends": [],
+        "jobPosts": []
+    },
+    {
+        "username": "Leslie",
+        "email": "lesliej@gmail.com",
+        "password": "password",
+        "friends": [],
+        "jobPosts": []
+    }
+]
