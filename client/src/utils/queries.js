@@ -1,40 +1,5 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_EDUCATIONPOSTS = gql `
-query educationPosts($username: String) {
-    educationPosts(username: $username) {
-        _id
-        educationText
-        createdAt
-        username
-        commentCount
-        comments {
-            _id
-            createdAt
-            username
-            commentBody
-        } 
-    }
-}
-`;
-
-export const QUERY_EDUCATIONPOST = gql `
-query educationPost($id: ID!) {
-    educationPost(_id: $id) {
-        _id
-        educationtText
-        createdAt
-        username
-        commentCount
-        comments {
-            _id
-            createdAt
-            username
-            commentBody
-        }
-    }
-}
-`;
 
 export const QUERY_JOBPOSTS = gql `
 query jobPosts($username: String) {
@@ -72,41 +37,6 @@ query jobPost($id: ID!) {
 }
 `;
 
-export const QUERY_INTERNPOSTS = gql `
-query internPosts($username: String) {
-    internPosts(username: $username) {
-        _id
-        internText
-        createdAt
-        username
-        commentCount
-        comments {
-            _id
-            createdAt
-            username
-            commentBody
-        } 
-    }
-}
-`;
-
-export const QUERY_INTERNPOST = gql `
-query internPost($id: ID!) {
-    internPost(_id: $id) {
-        _id
-       internText
-        createdAt
-        username
-        commentCount
-        comments {
-            _id
-            createdAt
-            username
-            commentBody
-        }
-    }
-}
-`;
 
 export const QUERY_USER = gql `
 query user($username: String!) {

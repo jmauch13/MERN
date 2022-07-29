@@ -38,51 +38,20 @@ mutation addJobPost($jobText: String!) {
     }
 }
 `;
-
-export const ADD_JOBCOMMENT = gql`
-mutation addJobComment($jobPostId: ID!, $commentBody: String!) {
-    addEducationComment(jobPostId: $jobPostId, commentBody: $commentBody) {
+export const ADD_COMMENT = gql `
+mutation addComment($jobPostId: ID!, $commentBody: String!) {
+    addComment(jobPostId: $jobId, commentBody: $commentBody) {
+     _id
+     commentCount
+     comments {
         _id
-        commentCount
-        comments {
-            _id
-            username
-            commentBody
-            creatdAt
-        }
-    }
-}
-`; 
-
-export const ADD_INTERNPOST = gql`
-mutation addInternPost($internText: String!) {
-    addInternPost(internText: $internText) {
-        _id
-        username
-       internText
+        commentBody
         createdAt
-        commentCount
-        comments {
-            _id
-        }
+        username
+     }   
     }
 }
 `;
-
-export const ADD_INTERNCOMMENT = gql`
-mutation addInternComment($internPostId: ID!, $commentBody: String!) {
-    addInternComment(internPostId: $internPostId, commentBody: $commentBody) {
-        _id
-        commentCount
-        comments {
-            _id
-            username
-            commentBody
-            creatdAt
-        }
-    }
-}
-`; 
 
 export const ADD_FRIEND = gql`
 mutation addFriend($id: ID!) {

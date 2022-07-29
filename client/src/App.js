@@ -8,8 +8,7 @@ import Sidebar from './components/Navbar/Sidebar';
 import Signup from './pages/LogPages/Signup';
 import Signin from './pages/LogPages/Signin';
 import ForgetPassword from './pages/LogPages/ForgetPassword';
-import Education from './pages/BlogPages/Education';
-import Intern from './pages/BlogPages/Intern';
+import Profile from './pages/BlogPages/Profile';
 import JobTalk from './pages/BlogPages/JobTalk';
 
 
@@ -44,8 +43,7 @@ const App = () => {
                 <Route path='/signup' element={<Signup />} />
                 <Route path='/signin' element={<Signin />} />
                 <Route path='/password' element={<ForgetPassword />} />
-                <Route path='/education' element={<Education />} />
-                <Route path='/intern' element={<Intern />} />
+                <Route path='/profile' element={<Profile />} />
                 <Route path='/jobs' element={<JobTalk />} />
             </Routes>   
         </div>

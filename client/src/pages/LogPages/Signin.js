@@ -6,6 +6,7 @@ import { USER_LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 import './logs.css'
+import logo from '../../assets/images/rocket-launch-icon.jpg';
 
 export default function Signin(props) {
     const [formState, setFormState ] = useState({ email: '', password: '' });

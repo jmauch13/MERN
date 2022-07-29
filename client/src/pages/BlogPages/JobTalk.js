@@ -1,8 +1,6 @@
 import React from 'react';
+import ModalScreen from './ModalScreen';
 import JobList from '../../components/JobList';
-import JobForm from '../../components/JobForm';
-
-
 import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_JOBPOSTS } from '../../utils/queries';
@@ -21,11 +19,7 @@ export default function JobTalk() {
     <body className='blog-pages'>
     <div className='wrapper'>
         <div className='jobs'>
-            {loggedIn && (
-                <div>
-                    <JobForm /> 
-                </div>
-            )}
+            
             <div className={`${loggedIn}`}>
                 {loading ? (
                     <div>Fetching Posts</div>
