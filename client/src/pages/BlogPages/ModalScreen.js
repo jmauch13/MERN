@@ -36,6 +36,7 @@ export default function ModalScreen() {
               <Form.Control
                 type='text'
                 placeholder=''
+                value={jobText}
                 autoFocus
               />
             </Form.Group>

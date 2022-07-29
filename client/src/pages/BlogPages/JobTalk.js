@@ -20,16 +20,7 @@ export default function JobTalk() {
     <body className='blog-pages'>
     <div className='wrapper'>
         <div className='jobs'>
-<<<<<<< HEAD
-            
-=======
-            <h1>Job Resources &nbsp;<img src={logo} alt='rocket' width='75' height='75' /></h1>
-            {loggedIn && (
-                <div className='blog-form'>
-                    <JobForm /> 
-                </div>
-            )}
->>>>>>> 1930798ac33093b58d43e8414dc175f966189def
+            <JobForm />
             <div className={`${loggedIn}`}>
                 {loading ? (
                     <div>Fetching Posts</div>
@@ -40,14 +31,6 @@ export default function JobTalk() {
                 />
                 )}
             </div>
-            <JobForm
-            <div>
-                {jobPost.commentCount > 0 && (
-                    <CommentList comments = {jobPost.comments} />
-                )}
-                <CommentForm jobPost={jobPost._id} />
-            
-         </div>
        </div>
     </div>
       
