@@ -23,7 +23,7 @@ export default function JobTalk() {
         <div className='jobs'>
             <h1>Job Resources &nbsp;<img src={logo} alt='rocket' width='75' height='75' /></h1>
             {loggedIn && (
-                <div>
+                <div className='blog-form'>
                     <JobForm /> 
                 </div>
             )}
