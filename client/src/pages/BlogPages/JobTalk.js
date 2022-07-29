@@ -1,6 +1,7 @@
 import React from 'react';
-import ModalScreen from './ModalScreen';
+import JobForm from '../../components/JobForm'
 import JobList from '../../components/JobList';
+import CommentForm from '../../components/CommentForm'
 import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_JOBPOSTS } from '../../utils/queries';
@@ -10,7 +11,7 @@ import logo from '../../assets/images/rocket-launch-icon.jpg';
 export default function JobTalk() {
     const { loading, data } = useQuery(QUERY_JOBPOSTS);
     
-    const jobPosts = data?.jobPosts || []; 
+    const jobPost = data?.jobPost || []; 
 
     const loggedIn = Auth.loggedIn();
     
@@ -25,11 +26,19 @@ export default function JobTalk() {
                     <div>Fetching Posts</div>
                 ) : (
                 <JobList    
-                jobPosts={jobPosts}
+                jobPosts={jobPost}
                 title="Job Resources" 
                 />
                 )}
             </div>
+            <JobForm
+            <div>
+                {jobPost.commentCount > 0 && (
+                    <CommentList comments = {jobPost.comments} />
+                )}
+                <CommentForm jobPost={jobPost._id} />
+            
+         </div>
        </div>
     </div>
       
