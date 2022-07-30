@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const commentsSchema = require('./Comments');
 const formatDate = require('../utils/formatDate'); 
 
-const EducationPostSchema = new Schema(
+const educationPostSchema = new Schema(
     {
         educationText: {
             type: String,
@@ -28,10 +28,10 @@ const EducationPostSchema = new Schema(
     }
 );
 
-EducationPostSchema.virtual('commentCount').get(function() {
+educationPostSchema.virtual('commentCount').get(function() {
     return this.comments.length;
 });
 
-const educationPost = model('educationPost', EducationPostSchema);
+const EducationPost = model('educationPost', educationPostSchema);
 
-module.exports = educationPost;
+module.exports = EducationPost;

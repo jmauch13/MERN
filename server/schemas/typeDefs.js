@@ -13,25 +13,9 @@ type User {
     internPosts: [InternPost]
     friends: [User]
 }
-type educationPost {
-    _id: ID
-    educationText: String
-    createdAt: String
-    username: String
-    commentCount: String
-    comments: [Comments]
-}
-type jobPost {
+type JobPost {
     _id: ID
     jobText: String
-    createdAt: String
-    username: String
-    commentCount: String
-    comments: [Comments]
-}
-type internPost {
-    _id: ID
-    internText: String
     createdAt: String
     username: String
     commentCount: String
@@ -54,23 +38,15 @@ type Query {
     me: User
     users: [User]
     user(username: String!): User
-    educationPosts(username: String): [educationPost]
-    educationPost(_id: ID!): educationPost
-    jobPosts(username: String): [jobPost]
-    jobPost(_id: ID!): jobPost
-    internPosts(username: String): [internPost]
-    internPost(_id: ID!): internPost
+    jobPosts(username: String): [JobPost]
+    jobPost(_id: ID!): JobPost
 }
 
 type Mutation {
     login(email: String!, password: String!): Auth 
     addUser(username: String!, email: String!, password: String!): Auth
-    addEducationPost(educationtText: String!): educationPost 
-    addEducationComment(educationPostId: ID!, commentBody: String!): educationPost
-    addJobPost(jobText:String!): jobPost
-    addJobComment(jobTextId: ID!, commentBody: String!): jobPost
-    addInternPost(internText: String!): InternPost
-    addInternComment(internTextId: ID!, commentBody: String!): internPost
+    addJobPost(jobText:String!): JobPost
+    addComment(jobTextId: ID!, commentBody: String!): JobPost 
     addFriend(friendId: ID!): User
 }
 `;

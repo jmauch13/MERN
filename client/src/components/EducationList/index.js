@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const EducationList = ({ educationPosts, title }) => {
     if (!educationPosts.length) {
         return <h3>No Posts To Display</h3>
@@ -23,10 +24,6 @@ const EducationList = ({ educationPosts, title }) => {
                     <div className="card-body">
                         <Link to={(`/education/${educationPost._id}`)}>
                         <p>{educationPost.educationText}</p>
-                        <p className="mb-0">
-                            Comments: {educationPost.commentCount} || Click to{' '}
-                            {educationPost.commentCount ? 'read' : 'share'} comments! 
-                        </p>
                         </Link>
                     </div>
                 </div>    

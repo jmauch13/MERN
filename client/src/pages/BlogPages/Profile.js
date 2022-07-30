@@ -1,9 +1,8 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
-import EducationList from '../components/EducationList';
+
 import JobList from '../components/JobList';
-import InternList from '../components/InternList';
 import FriendList from '../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
@@ -55,19 +54,6 @@ const Profile = (props) => {
             {userParams && (
                 <button onClick={clickHandler}>Add Friend</button>
             )} 
-    
-        <div>
-            <EducationList
-                educationPosts={user.educationPosts}
-                title={`${user.username}'s posts`} />
-           
-        </div>
-        <div>
-            <InternList 
-            internPosts={user.internPosts}
-            title={`${user.username}'s posts`}
-            />
-        </div>
 
         <div>
             <JobList

@@ -21,10 +21,6 @@ const JobList = ({ jobPosts, title }) => {
                     <div className="card-body">
                         <Link to={`/jobPost/${jobPost._id}`}>
                             <p>{jobPost.jobText}</p>
-                            <p className="mb-0">
-                                Comments: {jobPost.commentCount} || Click to{' '} 
-                                {jobPost.commentCount ? 'read' : 'share'} comments!
-                            </p>
                         </Link>
                     </div>
                 </div>

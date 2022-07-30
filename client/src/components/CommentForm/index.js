@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../utils/mutations';
 
-const CommentForm = ({ jobPostId, educationPostId, internPostId }) => {
+const CommentForm = ({ jobPostId }) => {
     const [commentBody, setBody] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
     const [addComment, { error }] = useMutation(ADD_COMMENT);
@@ -20,7 +20,7 @@ const CommentForm = ({ jobPostId, educationPostId, internPostId }) => {
 
         try {
             await addComment({
-                variables: { commentBody, educationPostId, jobPostId, internPostId },
+                variables: { commentBody,  jobPostId},
             });
 
             setBody('');

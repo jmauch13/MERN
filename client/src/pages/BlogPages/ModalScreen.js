@@ -13,7 +13,7 @@ export default function ModalScreen() {
     <div className='modal-popup'>
     <>
       <Button variant='primary' className='btn-one' onClick={handleShow}>
-        New Blog Post
+        Create New Blog Post
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -36,6 +36,7 @@ export default function ModalScreen() {
               <Form.Control
                 type='text'
                 placeholder=''
+                value={jobText}
                 autoFocus
               />
             </Form.Group>
