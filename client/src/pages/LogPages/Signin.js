@@ -4,7 +4,13 @@ import { useMutation } from '@apollo/client';
 import { USER_LOGIN } from '../../utils/mutations';
 import logo from '../../assets/images/rocket-launch-icon.jpg';
 import Auth from '../../utils/auth';
+<<<<<<< HEAD
+
+import './logs.css'
+import logo from '../../assets/images/rocket-launch-icon.jpg';
+=======
 import '../../pages/LogPages/logs.css';
+>>>>>>> 1930798ac33093b58d43e8414dc175f966189def
 
 export default function Signin(props) {
     const [formState, setFormState ] = useState({ email: '', password: '' });

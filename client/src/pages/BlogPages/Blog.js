@@ -2,8 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_INTERNPOSTS } from '../../utils/queries';
 import InternList from '../../components/InternList';
-/*import InternForm from '../../components/InternForm';*/
-import ModalScreen from '../BlogPages/ModalScreen';
+import InternForm from '../../components/InternForm';
 import Auth from '../../utils/auth';
 
 import '../BlogPages/blog.css';
@@ -26,7 +25,7 @@ export default function Blog() {
         <h1>BEYOND BOOT CAMP BLOG &nbsp;<img src={logo} alt='rocket' width='75' height='75' /></h1>
             {loggedIn && (
                 <div>
-                    <ModalScreen />
+                    <InternForm />
                 </div> 
             )}
             <div className={`${loggedIn}`}>
