@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 
 export default function ModalScreen() {
   const [show, setShow] = useState(false);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -68,4 +69,3 @@ export default function ModalScreen() {
     
   );
 }
-

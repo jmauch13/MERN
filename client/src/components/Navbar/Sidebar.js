@@ -15,8 +15,14 @@ export default props => {
       <a className='menu-item' href='/signin'>
         Sign In
       </a>
-      <a className='menu-item' href='/blog'>
-        Blog Page 
+      <a className='menu-item' href='/jobs'>
+        Job Talk
+      </a>
+      <a className='menu-item' href='/education'>
+        Further Educatiom
+      </a>
+      <a className='menu-item' href='/intern'>
+        Apprentice & Intern 
       </a>
       <a className='menu-item' href='/signout'>
         Sign Out
