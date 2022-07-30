@@ -1,4 +1,5 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 const commentsSchema = require('./Comments');
 const formatDate = require('../utils/formatDate'); 
 
@@ -32,6 +33,6 @@ jobPostSchema.virtual('commentCount').get(function() {
     return this.comments.length;
 });
 
-const JobPost = model('jobPost', jobPostSchema);
+const JobPost = mongoose.model('JobPost', jobPostSchema);
 
 module.exports = JobPost;

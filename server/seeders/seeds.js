@@ -1,5 +1,5 @@
 const userSeeds = require('./userSeed.json');
-const jobSeeds = require('./jobSeeds.json');
+const jobSeeds = require('./jobSeed.json');
 const db = require('../db/conn');
 const {JobPost, User} = require('../models'); 
 

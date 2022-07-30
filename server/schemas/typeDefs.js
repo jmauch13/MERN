@@ -8,9 +8,7 @@ type User {
     username: String
     email: String
     commentCount: Int
-    educationPosts: [EducationPost]
     jobPosts: [JobPost]
-    internPosts: [InternPost]
     friends: [User]
 }
 type JobPost {

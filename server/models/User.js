@@ -1,4 +1,5 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
@@ -20,18 +21,7 @@ const userSchema = new Schema(
         required: true,
         minlength: 5
     },
-    educationPosts: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'EducationPost'
-        }
-    ],
-    internPosts: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'InternPost'
-        }
-    ],
+   
     jobPosts: [
         {
             type: Schema.Types.ObjectId,
@@ -71,6 +61,6 @@ userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
 
-const User = model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
