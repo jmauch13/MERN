@@ -2,13 +2,12 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
 
-import JobList from '../components/JobList';
-import FriendList from '../components/FriendList';
+import JobList from '../../components/JobList';
+import FriendList from '../../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_FRIEND } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { QUERY_USER, QUERY_ME } from '../../utils/queries';
+import { ADD_FRIEND } from '../../utils/mutations';
 import '../BlogPages/blog.css';
 
 const Profile = (props) => {
@@ -21,7 +20,7 @@ const Profile = (props) => {
 
     const user = data?.me || data?.user || {};
 
-    if (Auth.loggedIn() && Auth.getProfile().data.username === userParams) {
+    if (userParams) {
         return <Navigate to="/profile:username" />;
     }
 

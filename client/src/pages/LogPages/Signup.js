@@ -6,7 +6,7 @@ import Auth from '../../utils/auth';
 import logo from '../../assets/images/rocket-launch-icon.jpg';
 import '../LogPages/logs.css'
 
-export default function Signup() {
+export default function Signup(props) {
     const [formState, setFormState] = useState({
         username: '',
         email: '',
@@ -25,22 +25,21 @@ export default function Signup() {
 
     const formSubmit = async (event) => {
         event.preventDefault();
-
-        try{
-         const { data } = await addUser({
-            variables: { ...formState },
+        const mutationResponse = await addUser({
+            variables: {
+                username: formState.username,
+                password: formState.password,
+                email: formState.email,
+            },
         });
-
-        Auth.login(data.addUser.token);
-    } catch (e) {
-        console.error(e);
-    }
+        const token = mutationResponse.data.addUser.token
+        Auth.login(token); 
 };
     return (
         <body className='log-page'>
     <div className='container'>
         <div className='text-center m-5-auto'>
-        <img src={logo} width='75' height='75' />
+        <img src={logo} width='75' height='75' alt="rocket" />
             <h2>Join us</h2>
             <h5>Create your personal account</h5>
             <form onSubmit={formSubmit}>

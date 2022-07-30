@@ -49,21 +49,10 @@ query user($username: String!) {
             _id
             username
         }
-        educationPosts {
-            _id
-            educationPostText
-            createdAt
-            commentCount
-        }
+        
         jobPosts {
             _id
             jobPostText
-            createdAt
-            commentCount
-        }
-        internPosts {
-            _id
-            internText
             createdAt
             commentCount
         }
@@ -78,9 +67,9 @@ export const QUERY_ME = gql `
         username
         email
         friendcount
-        blogPosts {
+        jobPosts {
             _id
-            blogPostText
+            jobText
             createdAt
             commentCount
             comments {

@@ -1,8 +1,6 @@
 import React from 'react';
 import JobForm from '../../components/JobForm'
 import JobList from '../../components/JobList';
-import CommentForm from '../../components/CommentForm'
-import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_JOBPOSTS } from '../../utils/queries';
 import '../BlogPages/blog.css';
@@ -13,7 +11,7 @@ export default function JobTalk() {
     
     const jobPost = data?.jobPost || []; 
 
-    const loggedIn = Auth.loggedIn();
+   
     
     
     return (
@@ -21,7 +19,7 @@ export default function JobTalk() {
     <div className='wrapper'>
         <div className='jobs'>
             <JobForm />
-            <div className={`${loggedIn}`}>
+            <div>
                 {loading ? (
                     <div>Fetching Posts</div>
                 ) : (
